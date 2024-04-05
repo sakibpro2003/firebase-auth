@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { authContext } from "../../AuthProvider";
+import { AuthContext } from "../../AuthProvider";
 
 const Register = () => {
+  const {registerUser} = useContext(AuthContext);
+  // console.log(authInfo);
   const handleRegister = (e) => {
-
-    const user = useContext(authContext)
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+    registerUser(email,password)
   };
   return (
     <div>
